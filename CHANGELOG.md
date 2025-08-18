@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.1.2
+### Fixed
+- Suppress `clippy::too_many_arguments` on generated methods.
+
 ## 0.1.1
 ### Fixed
 - Fixed errors on inner `#[substruct]` attributes in cases where the outer
