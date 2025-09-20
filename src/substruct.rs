@@ -510,7 +510,11 @@ impl<'a> Emitter<'a> {
                     }
                     FieldTransform::TryInto(_target_type) => {
                         into_assignments.push(quote::quote! {
-                            #dst: self.#src.try_into().expect("reverse conversion should not fail")
+                            #dst: self.#src.try_into().expect(&format!(
+                                "reverse conversion failed for field `{}` from source `{}`",
+                                stringify!(#dst),
+                                stringify!(#src)
+                            ))
                         });
                     }
                     FieldTransform::None => {
